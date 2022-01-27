@@ -108,7 +108,7 @@ def add_target_env(env, build_platform, target_triple, build_env):
         machine = platform.machine()
 
         if machine == "arm64":
-            env["BUILD_TRIPLE"] = "aarch64-apple-darwin"
+            env["BUILD_TRIPLE"] = target_triple
         elif machine == "x86_64":
             env["BUILD_TRIPLE"] = "x86_64-apple-darwin"
         else:
