@@ -31,7 +31,7 @@ jobs:
           cargo build --release
 
       - name: Upload pythonbuild Executable
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pythonbuild
           path: target/release/pythonbuild
@@ -151,7 +151,7 @@ jobs:
           python-version: '3.11'
 
       - name: Download pythonbuild
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: pythonbuild
           path: build
@@ -192,7 +192,7 @@ jobs:
           build/pythonbuild validate-distribution --macos-sdks-path macosx-sdks ${EXTRA_ARGS} dist/*.tar.zst
 
       - name: Upload Distributions
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.build.py }}-${{ matrix.build.target_triple }}
           path: dist/*

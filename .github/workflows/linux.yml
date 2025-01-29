@@ -36,7 +36,7 @@ jobs:
           cargo build --release
 
       - name: Upload pythonbuild Executable
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pythonbuild
           path: target/release/pythonbuild
@@ -106,7 +106,7 @@ jobs:
           zstd -v -T0 -6 --rm build/image-*.tar
 
       - name: Upload Docker Image
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: images
           path: build/image-*
@@ -775,13 +775,13 @@ jobs:
           python-version: '3.11'
 
       - name: Download pythonbuild
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: pythonbuild
           path: build
 
       - name: Download images
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: images
           path: build
@@ -819,7 +819,7 @@ jobs:
           build/pythonbuild validate-distribution ${EXTRA_ARGS} dist/*.tar.zst
 
       - name: Upload Distribution
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.build.py }}-${{ matrix.build.target_triple }}
           path: dist/*
