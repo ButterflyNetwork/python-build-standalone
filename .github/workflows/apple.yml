@@ -1,8 +1,14 @@
+# on:
+#   push:
+#   pull_request:
+#   schedule:
+#     - cron: '13 11 * * *'
+
 on:
   push:
-  pull_request:
-  schedule:
-    - cron: '13 11 * * *'
+    branches:
+      - cloud-344/python-build-standalone/v3-to-v4
+    
 jobs:
   pythonbuild:
     runs-on: 'macos-11'
